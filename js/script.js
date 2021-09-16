@@ -1,3 +1,4 @@
+"use Strict";
 alert('Hola');
 const name = prompt('Cual es tu nombre?');
 
@@ -147,3 +148,121 @@ const b1 = true;
 const b2 = false;
 
 console.log(b1 === b2);
+
+//--------UN OBJETO---------// 
+const nombre = "Monitor";
+const cost = 300;
+const disponidble = true;
+
+const produc = {
+    nombre: "Monitor",
+    cost: 300,
+    dispodible: true,
+}
+
+console.log(produc);
+
+//acceder a elemntos de un objeto 
+console.log("Nombre ",produc.nombre);
+
+//Eliminar elemnto de un objeto
+delete produc.cost;
+
+console.log(produc);
+
+//Extraer el val0or del objeto 
+const nom = produc.nombre;
+console.log(nom);
+
+/*No me funiono :(
+const {nombre} = produc;
+console.log(nombre);*/
+
+//Un objeto mas complejo
+
+const pro ={
+    nombre: "Monitor",
+    precio:200,
+    disponible: true,
+    info:{
+        peso: '1kg',
+        medida: '1m',
+        fabricacion:{
+            pais: 'Colombia'
+        }
+    }
+}
+
+//Para congelar el objeto y que no se pueda cambiar lo que tiene dentro:
+Object.freeze(pro);
+
+
+//Habilitar el modo estricto hace que se cumplan las reglas
+//Para saber si el objeto esta congelado o no
+console.log(Object.isFrozen(pro));
+
+//lo que hace seal es que no se pueden agregar ni eliminar propiedades pero si se pueden modificar las existenes
+Object.seal(pro);
+
+console.log(pro.info.fabricacion.pais);
+
+//Para acceder a un lemnto en espcifico
+const{ info, info: {fabricacion, fabricacion: {pais}}}= pro;
+console.log(pais);
+
+//una variable al estar declarada com const sus propiedades si se pueden cambiar
+pro.nombre = "Mouse";
+console.log(pro);
+console.log(Object.isSealed(pro));
+
+const medidas ={
+    pesoo: '1kg',
+    medidaa:'1m'
+}
+
+console.log(pro);
+console.log(medidas);
+
+//Hay una forma de unir los dos objetos(deben tener las variables con nombres distintos)
+const resultado2 = {...pro, ...medidas};
+console.log(resultado2);
+
+//Funciones dentro del objeto, toca colocar el this para que no se vaya a otro objeto 
+const carro = {
+    nombre: "deportivo",
+    precio: 300,
+    dispodible: true,
+    mostrarInfo: function(){
+        console.log(`El producto: ${this.nombre} tiene un precio de: ${this.precio}`)
+    }
+}
+carro.mostrarInfo();
+
+//Objeto constructor
+function element(nombre, precio, dispodible){
+    this.nombre = nombre;
+    this.precio = precio;
+    this.dispodible = true;
+}
+console.log(element("jasmin",23,false));
+
+const producto0 = new element("Andrea", 54, false);
+console.log(producto0);
+
+//objeto keys sirve para verificar si el obejto esta vacio o no (nombre, prescio...)
+console.log(Object.keys(carro));
+
+//Objetvo values donde muestra que todos tenga valores osea sale (desportivo, 300...)
+console.log(Object.values(carro));
+
+//Obejto entries muestra todo tanto lo que muestra en keys como values
+console.log(Object.entries(carro));
+
+
+
+
+
+
+
+
+
