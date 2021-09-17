@@ -1,5 +1,9 @@
 "use Strict";
 alert('Hola');
+
+//si no se le define var o let el editor lo toma como var
+city = 1;
+console.log(city);
 const name = prompt('Cual es tu nombre?');
 
 //para manejar la consola (console)
@@ -154,6 +158,7 @@ const nombre = "Monitor";
 const cost = 300;
 const disponidble = true;
 
+//este es un objto
 const produc = {
     nombre: "Monitor",
     cost: 300,
@@ -267,8 +272,12 @@ const numeros = [10,20,30];
 console.log(numeros);
 //console.log(meses);
 
-const detodo = ["Hola", 19, true, [1,2,3], null];
+const detodo = ["Hola", 19, true, [1,2,3], null, {one:1,two:2}];
 console.log(detodo);
+//recorrer el array
+for(const elemento of detodo){
+    console.log(elemento);
+}
 
 //Acceder a un elemento de un arrgelo
 console.log(numeros[1]);
@@ -340,7 +349,7 @@ console.log(primero);
 
 console.log(tercero);
 
-//forEach
+//forEach 
 
 const bus =[ 
      {nombre: 'Monitor', precio: 500},
@@ -355,11 +364,122 @@ bus.forEach( function(prod){
     console.log(`${prod.nombre} - precio: ${prod.precio}`)
 })
 
-//Nos crea un nuevo arreglo 
+//El map Nos crea un nuevo arreglo 
 bus.map( function(prod){
     console.log(`${prod.nombre} - precio: ${prod.precio}`)
 })
 
 
-  
+//----FUNTIONS-------//
+//la difenrcia entres las dos es que en sumar() se puede llmara antes de la funcion
+//en cambio en sumar2() no se puede llmara nates, ya que es como variable
+//Declaracion de funcion
+
+function sumar(){
+    console.log(2+2);
+}
+
+sumar();
+
+//Expresion de funcion (Funtion expresion)
+const sumar2 = function(){
+    console.log(2+3);
+}
+
+sumar2();
+
+const num1 = 20;
+const num2 = "20";
+
+// este es una funcion -> nom(valor);
+console.log(parseInt(num2));
+// este es un metodo -> atributo.nom();
+console.log(num1.toString());
+
+// a y b son argumnetos
+function sumar(a,b){
+    console.log(a+b);
+}
+sumar(2,6);
+
+//Si no mandan algo por parametros se hace asi para que no salga undefined
+function saludar(nombre = 'Desconocido', apellido = ''){
+    console.log("Nombre "+nombre+" Apellido "+apellido)
+}
+
+saludar("jasmin");
+
+iniciarApp();
+function iniciarApp(){
+    console.log("INiciar app");
+    segundaFuncion();
+}
+
+function segundaFuncion(){
+    console.log("Desde la segunda funsion");
+    usuarioAutenticamdo("jasmin");
+}
+
+function usuarioAutenticamdo(usuario ){
+    console.log("Uusario autenticando"+ usuario);
+}
+
+function resta(a,b){
+    return b-a;
+}
+
+console.log(resta(9,1));
+
+let total =0;
+
+function agregarC(precio){
+    return total += precio;
+}
+
+total = agregarC(200);
+total = agregarC(300);
+total = agregarC(300);
+
+console.log(total);
+
+const reproducir ={
+    reproductor: function(id){
+        console.log(`Reprodicienod la cancion el id ${id}`);
+    },
+    pausar: function(){
+        console.log('pausa');
+    }
+}
+
+reproducir.reproductor(30);
+reproducir.reproductor(20);
+reproducir.reproductor(0);
+
+reproducir.pausar();
+
+const aprenidno = function(){
+    console.log('apreindo js');
+}
+
+//arrowfuntions =>
+const aprenidno2 = (tecnologia) =>'apreindo js '+tecnologia;
+
+console.log(aprenidno2("t"));
+
+const buseta =[ 
+    {nombre: 'Monitor', precio: 500},
+    {nombre: 'compu', precio: 600},
+    {nombre: 'Mouse', precio: 700},
+    {nombre: 'Teclado', precio: 800},
+    {nombre: 'Audifnos', precio: 900},
+]
+
+//aplicando arrowFunction a map y foreach
+const nuevoA = buseta.map(prod => `${prod.nombre} - precios: ${prod.precio}`);
+
+buseta.forEach(prod => console.log(`${prod.nombre} - precio: ${prod.precio}`));
+
+console.log(nuevoA);
+
+
 
