@@ -259,10 +259,107 @@ console.log(Object.values(carro));
 console.log(Object.entries(carro));
 
 
+//----ARRAYS----//
+const numeros = [10,20,30];
+
+//const meses = new Array('Enero', 'Febrero', 'Marzo');
+
+console.log(numeros);
+//console.log(meses);
+
+const detodo = ["Hola", 19, true, [1,2,3], null];
+console.log(detodo);
+
+//Acceder a un elemento de un arrgelo
+console.log(numeros[1]);
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre'];
+console.table(meses);//una tabla en la consola
+
+//Cuanto midel el arreglo (tamaño)
+console.log(meses.length);
+
+//Agregar en una posicion especifica
+meses[9] = "Ultimno mes";
+meses.push('octubre');
+
+//acceder a toda la info del arrego
+for(let i =0; i < meses.length; i++){
+    console.log(meses[i]);
+}
+
+//agregar objetos a un arreglo
+const car =[];
+
+const pra ={
+    nombre: "Monitor",
+    precio: 400
+}
+
+const pro2 ={
+    nombre: "Celular",
+    precio: 600
+}
+const pro3 ={
+    nombre: "computador",
+    precio: 600
+}
 
 
+//forma 1 de agregar:
+car.push(pro2);
+car.push(pra);
+car.push(pro3);
+console.table(car);
+
+//forma 2 de agregra:
+//let resulta;
+//resulta = [...car, pra];
+//resulta = [...resulta, pro2];
+//console.table(resulta);
+
+//eliminar elemnto de un arreglo
+//eliminar ultimo elemnto:
+car.pop();
+console.table(car);
+
+//eliminar primer elemnto del arreglo
+car.shift();
+console.table(car);
+
+//eliminar varios elemntos
+car.splice(1,1);
+console.table(car);
+
+//Destructing con arreglos (accedera solo un valor en especifico en le arreglo)
+const number = [10,20,30,40,50,60];
+
+const [primero, segunod, tercero] = number;
+
+console.log(primero);
+
+console.log(tercero);
+
+//forEach
+
+const bus =[ 
+     {nombre: 'Monitor', precio: 500},
+     {nombre: 'compu', precio: 600},
+     {nombre: 'Mouse', precio: 700},
+     {nombre: 'Teclado', precio: 800},
+     {nombre: 'Audifnos', precio: 900},
+]
+
+//El forEach recorre el arreglo que ya tenemos
+bus.forEach( function(prod){
+    console.log(`${prod.nombre} - precio: ${prod.precio}`)
+})
+
+//Nos crea un nuevo arreglo 
+bus.map( function(prod){
+    console.log(`${prod.nombre} - precio: ${prod.precio}`)
+})
 
 
-
-
+  
 
