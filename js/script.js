@@ -481,5 +481,114 @@ buseta.forEach(prod => console.log(`${prod.nombre} - precio: ${prod.precio}`));
 
 console.log(nuevoA);
 
+//otra forma de defnir farreglos
+function two(){
+    const nums = new Array();
+    nums.push(34);
+    nums.push(35);
+    nums.push(36);
+    nums.push(37);
+    nums.forEach(value=> console.log(value));
+}
+
+two();
+
+function tree(){
+    const data=[{
+        id:345,
+        desc:"lopez",
+        value:3345
+    },
+    {
+        id:345546,
+        desc:"marin",
+        value:2345
+    },
+    {
+        id:3545,
+        desc:"santana",
+        value:2000
+    },
+];
+console.log(data);
+}
+
+tree();
+
+function four (){
+    const nums = [34,56,78,45,32,21,43,56];
+    const squares = nums.map(num => Math.pow(num,2));
+    //Sacar numeros pares:
+    const odds = nums.filter(num => num % 2 ==0);
+    //para sumar todos los numeros de un arrgelo
+    const sum = nums.reduce((ant,act)=>ant+act);
+    console.log(squares);
+    console.log(odds);
+    console.log(sum);
+}
+four();
+
+//----ESTRUCTURAS DE CONTROL-----//
+//un signo de igual es asigancion
+// dos signos de igual es comparacion no estructa
+//tres signos de igual es comparacion estricta
+
+//if
+const puntaj = 1000;
+if (puntaj != 100) console.log('si es igual');
+else console.log('No es igual');
+
+if (puntaj === 1000) console.log('si es igual');
+else console.log('No es igual');
+
+const user = true;
+const paga = true;
+if(user && paga) console.log("si puedes pagra");
+else console.log("No se puede pagra");
+
+//switch
+
+const metodoPago = 'efectivo';
+switch(metodoPago){
+    case 'efectivo':
+        console.log("pagaste con efectivo ");
+    break;
+    default:
+        console.log('aun no has seleccionado un metodo de pago');
+}
+
+//operador ternario
+// if (?)
+//else :
+const autenticado = true;
+const puedeP = false;
+console.log(autenticado ? "si esta autenticado" : "no esta autenticado");
+console.log(autenticado ? puedeP ? 'si esta autenticado y puede pagar' : 'si autenticado no puede pagar' : 'no esta autenticado');
+
+//for lop
+//continue: lo que hace es que asi ya se cumplio la condicion continue el for hasta que se acabe
+for(let i = 0; i < 10; i++){
+    if(i===5){
+        console.log('CINCO');
+        continue;
+    }
+    console.log(i);
+}
+
+//while
+
+let i =0;
+while(i <10){
+    console.log(i);
+    i++;
+}
+//for of
+//asignar los elemntos de un arreglo a un variable
+const pendisntes = ['tarea','comer','proyectop'];
+for(let pendiente of pendisntes){
+    console.log(pendiente);
+}
+
+
 
 
